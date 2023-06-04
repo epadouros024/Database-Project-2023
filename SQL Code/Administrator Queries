@@ -1,0 +1,9 @@
+#3.1.3
+SELECT u.User_ID, u.First_Name, u.Last_Name, COUNT(*) AS Books_Borrowed
+FROM users u
+JOIN borrow b ON u.User_ID = b.User_ID
+JOIN books bk ON bk.Book_Id = b.Book_Id
+WHERE u.Age < 40
+GROUP BY u.User_ID, u.First_Name, u.Last_Name
+ORDER BY Books_Borrowed DESC
+LIMIT 1;
