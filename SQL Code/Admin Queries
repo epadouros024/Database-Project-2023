@@ -1,1 +1,6 @@
 
+SELECT users.User_ID, users.First_Name, users.Last_Name, AVG(review.Linkert_Scale) AS Average_Rating
+FROM users
+JOIN review ON review.User_ID = users.User_ID
+WHERE users.User_ID = 5 -- Replace with the desired User_ID
+GROUP BY users.User_ID, users.First_Name, users.Last_Name;
