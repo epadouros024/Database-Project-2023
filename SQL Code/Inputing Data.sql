@@ -89,3 +89,18 @@ OPTIONALLY ENCLOSED BY '"'
 ESCAPED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 LINES;
+
+LOAD DATA INFILE "C:/Dummy Data/MOCK_DATA borrow.csv"
+INTO TABLE borrow
+FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(Borrow_ID,Status,Date_of_Borrow,School_Admin_Id,Books_Book_Id,User_ID,Author_Id);
+
+UPDATE borrow
+SET Day_of_Return = DATE_ADD(Date_of_Borrow, INTERVAL 2 WEEK);
+
+
+
+
+

@@ -197,7 +197,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Review` (
   `Review_Id` INT NOT NULL,
-  `Last_Name` VARCHAR(45) NULL,
+   `User_ID` INT NOT NULL,
   `Text` VARCHAR(45) NULL,
   `Linkert_Scale` VARCHAR(45) NULL,
   `Books_Book_Id` INT NOT NULL,
@@ -206,6 +206,12 @@ CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Review` (
   CONSTRAINT `fk_Review_Books1`
     FOREIGN KEY (`Books_Book_Id`)
     REFERENCES `Semester Project 2`.`Books` (`Book_Id`)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
+  INDEX `fk_Review_User_idx` (`User_ID` ),
+  CONSTRAINT `fk_Review_User1`
+    FOREIGN KEY (`User_ID`)
+    REFERENCES `Semester Project 2`.`Users` (`User_Id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
