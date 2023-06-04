@@ -8,5 +8,5 @@ insert into school_admin(School_Admin_Id, Name, Email)
                values(23,'Komama', 'Boto','komamaboto@gmail.com');
 
 insert into school_admin(School_Admin_Id, Name, Email)
-               values(24,'John', 'Foso','johnfoso@gmail.com');
+               values(24,'John Foso','johnfoso@gmail.com');
 
