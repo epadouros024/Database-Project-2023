@@ -1,6 +1,19 @@
-
+4.2
 SELECT users.User_ID, users.First_Name, users.Last_Name, AVG(review.Linkert_Scale) AS Average_Rating
 FROM users
 JOIN review ON review.User_ID = users.User_ID
 WHERE users.User_ID = 5 -- Replace with the desired User_ID
 GROUP BY users.User_ID, users.First_Name, users.Last_Name;
+
+
+
+4.1
+
+SELECT DISTINCT users.*,DATEDIFF(NOW(), borrow.Day_of_Return)
+                                    FROM users
+                                    JOIN borrow ON users.User_ID = borrow.User_ID
+                                    JOIN books ON books.Book_Id = borrow.Books_Book_Id
+                                    WHERE borrow.Day_of_Return < NOW()
+                                    AND users.Number_Of_Loaned_Books > 0
+                                    AND DATEDIFF(NOW(), borrow.Day_of_Return) > 50
+                                    AND borrow.Status = 0 
