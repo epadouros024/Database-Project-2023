@@ -7,3 +7,25 @@ WHERE u.Age < 40
 GROUP BY u.User_ID, u.First_Name, u.Last_Name
 ORDER BY Books_Borrowed DESC
 LIMIT 1;
+
+#3.1.2
+-- Ερώτημα για τους συγγραφείς της δεδομένης κατηγορίας
+SELECT DISTINCT a.Author_Id, a.First_Name,a.Last_Name
+FROM author a
+JOIN author_book ab ON a.Author_Id = ab.Author_Id
+JOIN books b ON ab.Book_Id = b.Book_Id
+JOIN category_book cb ON b.Book_Id = cb.Book_Id
+JOIN categories c ON cb.category_id = c.Category_Id
+WHERE c.Name = 'Thriller'
+ORDER BY a.First_Name,a.Last_Name;
+
+-- Ερώτημα για τους εκπαιδευτικούς που έχουν δανειστεί βιβλία αυτής της κατηγορίας το τελευταίο έτος
+SELECT DISTINCT u.User_ID, u.First_Name, u.Last_Name
+FROM users u
+JOIN borrow b ON u.User_ID = b.User_ID
+JOIN books bk ON bk.Book_Id = b.Books_Book_Id
+JOIN category_book cb ON bk.Book_Id = cb.Book_Id
+JOIN categories c ON cb.Category_Id = c.Category_Id
+WHERE c.Name = 'Thriller' AND YEAR(b.Date_of_Borrow) = YEAR(CURRENT_DATE) - 1
+AND u.Type = 1
+ORDER BY u.Last_Name, u.First_Name;
