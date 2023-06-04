@@ -30,7 +30,7 @@ insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, ema
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
           values (32,'SalomonHelstrom', 'admin2', 'Salomon', 'Helstrom', 53, 'SalomonHelstrom@gmail.com', 1, '105', 0, 3, 2);
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
-          values (33,'WilhelminaHechlin', 'admin3', 'Wilhelmina', 'Hechlin', 54, 'WilhelminaHechlin@gmail.com', 1, '106', 0, 3, 3);
+          values (33,'WilhelminaHechlin', 'admin3', 'Wilhelmina', 'Hechlin', 54, 'WilhelminaHechlin@gmail.com', 1, '106', 2, 3, 3);
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
           values (34,'GiffordPitrollo', 'admin4', 'Gifford', 'Pitrollo', 55, 'GiffordPitrollo@gmail.com', 1, '107', 2, 3, 4);
 
@@ -83,7 +83,7 @@ insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, ema
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
           values (60,'WrennieSantori', 'student11', 'Wrennie', 'Santori', 15, 'WrennieSantori@gmail.com', 1, '129', 1, 0, 2);
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
-          values (61,'EloiseHeadrick', 'student12', 'Eloise', 'Headrick', 16, 'EloiseHeadrick@gmail.com', 1, '130', 0, 0, 2);
+          values (61,'EloiseHeadrick', 'student12', 'Eloise', 'Headrick', 16, 'EloiseHeadrick@gmail.com', 1, '130', 1, 0, 2);
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
           values (62,'ValliVasyunin', 'student13', 'Valli', 'Vasyunin', 17, 'ValliVasyunin@gmail.com', 1, '131', 0, 0, 2);
 insert into users (User_ID, Username, Password , First_Name, Last_Name, Age, email, Registration_Status, Borrowred_Card_Number, Number_Of_Loaned_Books , Type, School_Id )
