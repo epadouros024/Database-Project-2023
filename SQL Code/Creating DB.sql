@@ -51,7 +51,6 @@ CREATE TABLE IF NOT EXISTS `Semester Project 2`.`School` (
   `School_Name` VARCHAR(45) NULL,
   `Phone` VARCHAR(50) NULL,
   `Email` VARCHAR(45) NULL,
-  `Principal_ID` VARCHAR(50) NULL,
   `Administrator_ID` VARCHAR(50) NULL,
   `Address_Id` INT NOT NULL,
   `School_Admin_Id` INT NOT NULL,
@@ -80,26 +79,16 @@ CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Books` (
   `Publisher` VARCHAR(45) NULL,
   `Pages` INT NULL,
   `Available_Copies` INT NULL,
-  `Inventory` INT NULL,
   `Image` VARCHAR(450) NULL,
   `Summary` VARCHAR(2500) NULL,
   `Language` VARCHAR(45) NULL,
   `KeyWords` VARCHAR(100) NULL,
   `School_idSchool` INT NOT NULL,
-  `Author_Id` INT NOT NULL,
-  `Category_Id` INT NOT NULL,
   PRIMARY KEY (`Book_Id`),
   INDEX `fk_Books_School1_idx` (`School_idSchool` ),
-  INDEX `fk_Books_Author1_idx` (`Author_Id` ),
-  INDEX `fk_Books_Categories1_idx` (`Category_Id`),
   CONSTRAINT `fk_Books_School1`
     FOREIGN KEY (`School_idSchool`)
     REFERENCES `Semester Project 2`.`School` (`idSchool`)
-    ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  CONSTRAINT `fk_Books_Categories1`
-    FOREIGN KEY (`Category_Id`)
-    REFERENCES `Semester Project 2`.`Categories` (`Category_Id`)
     ON DELETE RESTRICT
     ON UPDATE CASCADE
 )
@@ -166,8 +155,7 @@ CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Borrow` (
   `School_Admin_Id` VARCHAR(45) NOT NULL,
   `Books_Book_Id` INT NOT NULL,
   `User_ID` INT NOT NULL,
-  `Author_Id` INT NOT NULL, 
-  
+ 
   PRIMARY KEY (`Borrow_ID`),
   INDEX `fk_Borrow_Books1_idx` (`Books_Book_Id` ),
   CONSTRAINT `fk_Borrow_Books1`
@@ -180,12 +168,6 @@ CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Borrow` (
     FOREIGN KEY (`User_ID`)
     REFERENCES `Semester Project 2`.`Users` (`User_Id`)
     ON DELETE RESTRICT
-    ON UPDATE CASCADE,
-  INDEX `fk_Borrow_Author1_idx` (`Author_Id` ),
-  CONSTRAINT `fk_Borrow_Author1`
-    FOREIGN KEY (`Author_Id`)
-    REFERENCES `Semester Project 2`.`Author` (`Author_Id`)
-    ON DELETE RESTRICT
     ON UPDATE CASCADE
 )
 ENGINE = InnoDB;
@@ -196,7 +178,7 @@ ENGINE = InnoDB;
 -- Table `Semester Project 2`.`Review`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Semester Project 2`.`Review` (
-  `Review_Id` INT NOT NULL,
+  `Review_Id` INT NOT NULL auto_increment,
    `User_ID` INT NOT NULL,
   `Text` VARCHAR(45) NULL,
   `Linkert_Scale` VARCHAR(45) NULL,
